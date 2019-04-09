@@ -21,7 +21,7 @@ okkay | ok
   float: "false",
   iframeUrl: "",
   knowledgeData: ["What's your name?", "Who created you?"],
-  locale: "en",
+  locale: "kr",
   name: "",
   responseIcon: "fa-robot",
   sendContextParams: "login",

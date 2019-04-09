@@ -1212,7 +1212,7 @@ export default {
       showProgressUpload: false,
       activeColor: "",
       trueFalseOptions: ["true", "false"],
-      locales: ["en", "fr", "es", "nl", "de", "ru"],
+      locales: ["en", "fr", "es", "nl", "de", "ru", "kr"],
       displayAddEditDialog: false,
       currentModeEdit: "",
       dialogTitle: "",

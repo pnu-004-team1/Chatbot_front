@@ -172,5 +172,34 @@ export const TRANSLATIONS = {
     "button.page": "страница",
     "button.more": "Больше",
     "button.pdf": "PDF"
-  }
+  },
+  kr: {
+    "about.page.button": "Learn more",
+    "about.page.content":
+      "Teneo allows your customers to speak to applications, devices and web services in a natural, human-like and intelligent way",
+    "about.page.title": "Teneo by Artificial Solutions",
+    "about.page.url": "https://www.artificial-solutions.com/",
+    "back.to.chat.button": "back to chat",
+    "empty.user.input": "Looks like you didn't say anything to me",
+    "help.page.title": "Here are some things that you can ask me",
+    "input.box.label": "너의 질문은?...",
+    listening: "Listening...",
+    "menu.about": "About",
+    "menu.chat": "Chat",
+    "menu.config": "Config",
+    "menu.help": "Help",
+    "menu.history": "History",
+    "more.button": "more",
+    "more.info.title": "More Information",
+    "no.chat.history.body": "Ask me a few questions to get things rolling..",
+    "no.chat.history.title": "No Chat History",
+    "input.box.label.password": "Enter password",
+    "input.box.label.email": "Enter email @",
+    "button.video": "Video",
+    "button.image": "Image",
+    "button.table": "Results Table",
+    "button.page": "Page",
+    "button.more": "More",
+    "button.pdf": "PDF"
+  },
 };
