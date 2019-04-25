@@ -63,17 +63,26 @@ body {
     background: white;
     font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
+  .main {
+    padding-top: 20px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 20px;
+    background-color: lightcyan;
+    text-align: center;
+    width: 500px;
+    height: 800px;
+  }
   .chat {
-    margin: 0 auto;
-    max-width: 320px;
-    overflow: auto;
-    height: 500px;
+    height: 90%;
+    width: 100%;
+    overflow-y: auto;
   }
   .form {
     margin: 0 auto;
     max-width: 320px;
   }
-  p {
+  .chat div{
     margin: 0 0 0.5em;
     border-radius: 1em;
     padding: 0.5em 1em;
@@ -81,9 +90,12 @@ body {
     max-width: 75%;
     clear: both;
     position: relative;
+    max-width: 200px;
+    width: auto;
   }
-  p.other {
+  .chat div.other {
     float: left;
+    margin-left: 5%;
   }
   /* p.other::after {
     content: "";
@@ -95,10 +107,11 @@ body {
     border-right: 0.5em solid #e5e5ea;
     border-bottom-right-radius: 1em 0.5em;
   } */
-  p.me {
+  .chat div.me {
     float: right;
     background-color: #1289fe;
     color: white;
+    margin-right: 5%;
   }
   /* p.me::after {
     content: "";

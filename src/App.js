@@ -39,9 +39,9 @@ class App extends Component {
     const { handleKeyPress, handleChange } = this
     const messageList = messages.map(
       ({id, text, from}) => (
-        <p className={from}>
+        <div className={from}>
           {text}
-        </p>
+        </div>
       )
     )
     
