@@ -1,126 +1,197 @@
-/* main
-#main {
-    margin: auto;
-    margin-top: 100px;
-    border-radius: 20px;
-    background-color: lightblue;
-    text-align: center;
-    width: 500px;
-    height: 800px;
-}
-#chat {
-    height: 90%;
-    width: 100%;
-    overflow-y: auto;
-}
-  
-.connect {
-    width: 90%;
-    margin: 0 5% 0 5%;
-    background-color: aquamarine;
-    text-align: center;
-    margin-top: 10px;
-    float: right;
-}
-  
-.disconnect {
-    width: 90%;
-    margin: 0 5% 0 5%;
-    background-color: indianred;
-    text-align: center;
-    margin-top: 10px;
-    float: right;
-}
-  
-.me {
-    max-width: 200px;
-    width: auto;
-    margin: auto;
-    background-color: lemonchiffon;
-    padding: 0 10px 0 10px;
-    border-radius: 5px;
-    margin-top: 10px;
-    margin-right: 5%;
-    text-align: left;
-    float: right;
-    clear: both;
-}
-  
-.other {
-    max-width: 200px;
-    width: auto;
-    margin: auto;
-    background-color: white;
-    padding: 0 10px 0 10px;
-    border-radius: 5px;
-    margin-top: 10px;
-    margin-left: 5%;
-    text-align: left;
-    float: left;
-    clear: both;
-} */
+/* Setting */
+@import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,700&subset=latin-ext');
+*:focus {outline:none;}
 body {
-    background: white;
-    font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
-  .main {
-    padding-top: 20px;
-    margin: auto;
-    margin-top: 100px;
-    border-radius: 20px;
-    background-color: lightcyan;
-    text-align: center;
-    width: 500px;
-    height: 800px;
-  }
-  .chat {
-    height: 90%;
+    font-family: 'Oxygen', sans-serif;
+    background-color: #F0F9FF;
+    margin:0;
+    padding:50px 0;
+}
+.container {
     width: 100%;
-    overflow-y: auto;
-  }
-  .form {
+    max-width: 500px;
     margin: 0 auto;
-    max-width: 320px;
-  }
-  .chat div{
-    margin: 0 0 0.5em;
-    border-radius: 1em;
-    padding: 0.5em 1em;
-    background: #e5e5ea;
-    max-width: 75%;
-    clear: both;
+    border: 1px solid #ececec;
+    background-color: #3699f60d;
+    box-shadow: 0px 0px 100px -33px #0000003d;
+}
+
+
+body .chatHeader {
+    background-color: #fff;
     position: relative;
-    max-width: 200px;
-    width: auto;
-  }
-  .chat div.other {
-    float: left;
-    margin-left: 5%;
-  }
-  /* p.other::after {
-    content: "";
+    padding: 11px;
+    padding-left: 40px;
+    box-shadow: 0 6px 34px -6px #e0e0e0a6;
+}
+
+body .chatHeader > .BackBtn {
     position: absolute;
-    left: -0.5em;
-    bottom: 0;
-    width: 0.5em;
-    height: 1em;
-    border-right: 0.5em solid #e5e5ea;
-    border-bottom-right-radius: 1em 0.5em;
-  } */
-  .chat div.me {
-    float: right;
-    background-color: #1289fe;
-    color: white;
-    margin-right: 5%;
-  }
-  /* p.me::after {
-    content: "";
+    color: #0099F6;
+    font-size: 28px;
+    width: 40px;
+    height: 56px;
+    line-height: 53px;
+    text-align: center;
+    left: 0;
+    top: 0;
+}
+
+body .chatHeader > .headerTitle {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: #1373AE;
+}
+
+body .chatHeader > .headerTitle > .NameIcon {
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 50%;
+    border: 1px solid #3699f6;
+    text-align: center;
+    flex: none;
+}
+
+body .chatHeader > .headerTitle > .Txt {
+    flex: auto;
+    margin-left: 10px;
+}
+
+body .chatHeader > .headerTitle > .Txt > div {
+    font-size: 11px;
+    margin: 2px 0;
+}
+
+body .chatSend {
+    height: 48px;
+  position:relative;
+}
+
+body .chatSend > .errorTxt {
     position: absolute;
-    right: -0.5em;
-    bottom: 0;
-    width: 0.5em;
-    height: 1em;
-    border-left: 0.5em solid #1289fe;
-    border-bottom-left-radius: 1em 0.5em;
-  } */
-  
+    top: -27px;
+    left: 0;
+    right: 0;
+    background-color: #fb5c5c;
+    font-size: 12px;
+    padding: 7px;
+    color: #fff;
+    text-align: center;
+}
+
+body .chatSend > .sendText {
+    border: 0;
+    height: 48px;
+    padding-right: 55px;
+    padding-left: 20px;
+    font-size: 12px;
+    color: #6f6f6f;
+    display: block;
+    width: calc(100% - 75px);
+}
+
+body .chatSend > .sendText::-webkit-input-placeholder {
+    color: rgba(54, 153, 246, 0.38);
+}
+
+body .chatSend > .sendText::-moz-placeholder {
+    color: rgba(54, 153, 246, 0.38);
+}
+
+body .chatSend > .sendText:-ms-input-placeholder {
+    color: rgba(54, 153, 246, 0.38);
+}
+
+body .chatSend > .sendText:-moz-placeholder {
+    color: rgba(54, 153, 246, 0.38);
+}
+
+body .chatSend > #send-message {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    z-index: 2;
+    height: 48px;
+    line-height: 48px;
+    border: 0;
+    width: 55px;
+    background-color: #fff;
+    font-size: 20px;
+    color: #3699f6;
+    text-align: center;
+}
+
+body .chatContent {
+    height: 100%;
+    min-height: 550px;
+    padding: 20px;
+    max-height: 450px;
+    overflow-y: auto;
+}
+body .chatContent::-webkit-scrollbar {
+  width: 3px;
+}
+
+body .chatContent::-webkit-scrollbar-track {
+  background: #fafafa; 
+}
+ 
+body .chatContent::-webkit-scrollbar-thumb {
+  background: #3699f6; 
+}
+body .chatContent::-webkit-scrollbar-thumb:hover {
+  background: #3699f6; 
+}
+
+body .chatContent .chat-column {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+body .chatContent .chat-column > .item > .chat-icon {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    background-color: #0099F6;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    font-weight: 600;
+    margin-right: 13px;
+    margin-top: 5px;
+}
+
+body .chatContent .chat-column > .item > .chat-message {
+    background-color: #3699f6;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 10px;
+    line-height: 20px;
+}
+
+body .chatContent .chat-column > .item > .message-date {
+    font-size: 10px;
+    color: #3699f6;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+body .chatContent .chat-column.me {
+    flex-direction: row-reverse;
+}
+
+body .chatContent .chat-column.me > .item > .chat-icon {
+    margin-right: 0;
+    margin-left: 13px;
+    background-color: #fff;
+    color: #3699f6;
+}
+
+body .chatContent .chat-column.me > .item > .chat-message {
+    background-color: #fff;
+    color: #3699f6;
+}
