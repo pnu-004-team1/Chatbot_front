@@ -52,11 +52,14 @@ body .chatHeader > .headerTitle {
 }
 
 body .chatHeader > .headerTitle > .NameIcon {
-    width: 28px;
+    /* width: 28px;
     height: 28px;
-    line-height: 28px;
+    line-height: 28px; */
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
     border-radius: 50%;
-    border: 1px solid #3699f6;
+    /* border: 1px solid #3699f6; */
     text-align: center;
     flex: none;
 }
