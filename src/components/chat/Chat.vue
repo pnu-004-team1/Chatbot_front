@@ -29,8 +29,9 @@
             placeholder="message.."
             v-model="input"
             v-on:keydown="handelPress"
+            v-on:click="handleInputClick"
         />
-        <div id="send-message" onClick={handleCreate}>
+        <div id="send-message" v-on:click="handleClick">
             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
         </div>
         </div>
@@ -62,13 +63,21 @@ export default {
   },
   methods: {
     handelPress (e) {
+      $('.errorTxt').remove()
       if (e.key === 'Enter') {
         const message = this.$store.state.input
         this.$store.commit('addMessage', message)
         this.$store.dispatch('sendMessage', message)
-        const divObj = document.getElementsByClassName('chatContent')[0]
-        divObj.scrollTop = divObj.scrollHeight
+        var chat = $('.chatContent')
+        var chatItems = $('.chat-column').length
+        chat.animate({scrollTop: (chat.prop('scrollHeight') * chatItems)})
       }
+    },
+    handleClick () {
+      $('<div class="errorTxt">에러가 밸생했습니다 !!!</div>').hide().appendTo('.chatSend').fadeIn(500)
+    },
+    handleInputClick () {
+      $('.errorTxt').remove()
     }
   }
 }
