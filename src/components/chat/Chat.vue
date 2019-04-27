@@ -65,6 +65,8 @@ export default {
         const message = this.$store.state.input
         this.$store.commit('addMessage', message)
         this.$store.dispatch('sendMessage', message)
+        const divObj = document.getElementsByClassName('chatContent')[0]
+        divObj.scrollTop = divObj.scrollHeight
       }
     }
   }
