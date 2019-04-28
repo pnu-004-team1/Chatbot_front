@@ -17,14 +17,11 @@
         <!-- BEGIN : SignUpContent -->
         <div class="chatContent">
           <div class="signWrapper">
-            <form action="" method="post" class="form-signup">
-            <h2 class="form-signup-heading">회원가입</h2>
-            <input type="text" class="form-control" name="ID" placeholder="Username" required="" autofocus="" />
-            <input type="password" class="form-control" name="PW" placeholder="Password" required=""/>
-            <input type="text" class="form-control" name="Name" placeholder="Name" required=""/>
-            <input type="email" class="form-control" name="Email" placeholder="Email" required=""/>
-            <button class="SignBtn" type="submit">Submit</button>
-            <button class="SignBtn" type="reset">Reset</button>
+            <form action="" method="post" class="form-signin">
+              <h2 class="form-signin-heading">로그인</h2>
+              <input type="text" class="form-control" name="ID" placeholder="Username" required="" autofocus="" />
+              <input type="password" class="form-control" name="PW" placeholder="Password" required=""/>
+              <button class="loginBtn" type="submit">Login</button>
             </form>
           </div>
         </div>
@@ -35,7 +32,7 @@
 import BuggerMenu from '../menu/BuggerMenu'
 
 export default {
-  name: 'SignUp',
+  name: 'LogIn',
   data () {
     return {}
   },
@@ -52,16 +49,16 @@ export default {
     font-family:Arial;
   }
 
-  .form-signup {
+  .form-signin {
     max-width: 380px;
     padding: 15px 35px 45px;
     margin: 0 auto;
   }
-  .form-signup .form-signup-heading{
+  .form-signin .form-signin-heading{
     margin-left: 10%;
     margin-bottom: 30px;
   }
-  .form-signup .form-control {
+  .form-signin .form-control {
     position: relative;
     font-size: 16px;
     height: auto;
@@ -70,23 +67,27 @@ export default {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
-  .form-signup .form-control:focus {
+  .form-signin .form-control:focus {
     z-index: 2;
   }
-  .form-signup input {
+  .form-signin input[type="text"] {
     width:80%;
     margin-left: 10%;
-    margin-top: 0;
-    margin-bottom: -1px;
+    margin-bottom: 0px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    width:80%;
+    margin-left: 10%;
+    margin-top: 20px;
+    margin-bottom: 20px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
-  .SignBtn {
-    width: 20%;
-    margin-left: 20%;
-    margin-top: 20px;
-    -moz-box-shadow:inset 0px -3px 7px 0px #29bbff;
-    -webkit-box-shadow:inset 0px -3px 7px 0px #29bbff;
+  .loginBtn {
+    width: 80%;
+    margin-left: 10%;
     box-shadow:inset 0px -3px 7px 0px #29bbff;
     background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
     background:-moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
@@ -94,10 +95,7 @@ export default {
     background:-o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
     background:-ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
     background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
     background-color:#2dabf9;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
     border-radius:3px;
     border:1px solid #0b0e07;
     display:inline-block;
@@ -105,11 +103,11 @@ export default {
     color:#ffffff;
     font-family:Arial;
     font-size:15px;
-    padding:7px 15px;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #263666;
+    padding:10px 76px;
+    /* text-decoration:none;
+    text-shadow:0px 1px 0px #263666; */
   }
-  .SignBtn:hover {
+  .loginBtn:hover {
     background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0688fa), color-stop(1, #2dabf9));
     background:-moz-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
     background:-webkit-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
@@ -119,7 +117,7 @@ export default {
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0688fa', endColorstr='#2dabf9',GradientType=0);
     background-color:#0688fa;
   }
-  .SignBtn:active {
+  .loginBtn:active {
     position:relative;
     top:1px;
   }

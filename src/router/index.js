@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import Sign from '@/components/Sign'
-// import Login from '@/components/Login'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -17,11 +17,11 @@ export default new Router({
       path: '/Sign',
       name: 'Sign',
       component: Sign
+    },
+    {
+      path: '/Login',
+      name: 'Login',
+      component: Login
     }
-    // {
-    //   path: '/Login',
-    //   name: 'Login',
-    //   component: Login
-    // }
   ]
 })
