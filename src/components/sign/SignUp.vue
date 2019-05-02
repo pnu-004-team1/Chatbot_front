@@ -17,9 +17,9 @@
         <!-- BEGIN : SignUpContent -->
         <div class="chatContent">
           <div class="signWrapper">
-            <form action="" method="post" class="form-signup">
+            <form @submit.prevent="sendPost" class="form-signup">
             <h2 class="form-signup-heading">회원가입</h2>
-            <input type="text" class="form-control" name="ID" placeholder="Username" required="" autofocus="" />
+            <input type="text" class="form-control" name="ID" placeholder="Username" required="" autofocus=""/>
             <input type="password" class="form-control" name="PW" placeholder="Password" required=""/>
             <input type="text" class="form-control" name="Name" placeholder="Name" required=""/>
             <input type="email" class="form-control" name="Email" placeholder="Email" required=""/>
@@ -38,6 +38,11 @@ export default {
   name: 'SignUp',
   data () {
     return {}
+  },
+  methods: {
+    sendPost: (e) => {
+      console.log(e)
+    }
   },
   components: {
     BuggerMenu
