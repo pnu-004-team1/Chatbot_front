@@ -1,9 +1,9 @@
 <template>
     <div class="container">
+        <BuggerMenu/>
         <!-- BEGIN : chatHeader -->
         <div class="chatHeader">
           <a href="#" class="BackBtn"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
-          <BuggerMenu/>
         <div class="headerTitle">
             <!-- <div class="NameIcon">SA</div> -->
           <img class="NameIcon" src="../../common/images/logo.png"/>

@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import './common/css/base.css'
+import './common/css/menu.css'
+import './common/css/sign.css'
 import { store } from './store/store'
 import 'expose-loader?$/expose-loader?jQuery/jquery'
 
