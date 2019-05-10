@@ -64,15 +64,23 @@ export default {
     BuggerMenu
   },
   methods: {
-    handelPress (e) {
+    async handelPress (e) {
       if (e.key === 'Enter') {
         const message = this.$store.state.input
-        this.$store.commit('addMessage', message)
-        this.$store.dispatch('sendMessage', message)
-        const divObj = document.getElementsByClassName('chatContent')[0]
-        divObj.scrollTop = divObj.scrollHeight
+        await this.$store.commit('addMessage', message)
+        await this.autoScroll()
+        // this.$store.dispatch('sendMessage', message).then(() => {
+        //   const divObj = document.getElementsByClassName('chatContent')[0]
+        //   divObj.scrollTop = divObj.scrollHeight
+        // })
       }
+    },
+    autoScroll () {
+      const divObj = document.getElementsByClassName('chatContent')[0]
+      divObj.scrollTop = divObj.scrollHeight
     }
+  },
+  updated () {
   }
 }
 </script>

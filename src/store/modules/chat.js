@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import axios from 'axios'
 Vue.use(Vuex)
 
-export const store = new Vuex.Store({
+const chat = new Vuex.Store({
   state: {
     input: '',
     messageID: 0,
@@ -38,25 +38,6 @@ export const store = new Vuex.Store({
   },
   actions: {
     sendMessage: ({ state }, payload) => {
-      if (payload.charAt(0) === '$') {
-        return axios
-          .get('http://localhost:7000/bookInfo', {
-            params: {query: payload.substring(1, payload.length)}
-          })
-          .then(res => {
-            console.log(res.data)
-            const item = {
-              id: state.messageID++,
-              text: res.data,
-              from: 'bot',
-              date: getTimeStamp()
-            }
-            state.messages.push(item)
-          })
-          .catch(e => {
-            console.log(e)
-          })
-      }
       return axios
         .get('http://localhost:7000/chatbot', {
           params: {query: payload}
@@ -101,3 +82,4 @@ function leadingZeros (n, digits) {
   }
   return zero + n
 }
+export default chat
