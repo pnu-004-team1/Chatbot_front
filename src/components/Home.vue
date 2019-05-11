@@ -1,13 +1,13 @@
 <template>
   <div>
-    <iframe
+    <!-- <iframe
       id="site-frame"
       src="http://www.pusan.ac.kr/kor/Main.do"
       frameborder="0"
       width="100%"
       height="1500"
       sandbox="allow-same-origin allow-scripts"
-    />
+    /> -->
     <fab
       :position="position"
       :bg-color="bgColor"

@@ -179,7 +179,7 @@ body .chatSend > #send-message {
 body .chatContent {
     height: 680px;
     /* min-height: 500px; */
-    padding: 0px 20px 0px 20px;
+    padding: 20px 20px 0px 20px;
     /* max-height: 450px; */
     /* bottom: 48px; */
     overflow-y: auto;
