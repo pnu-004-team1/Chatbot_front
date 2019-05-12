@@ -69,6 +69,14 @@ export default {
         const message = this.$store.state.input
         await this.$store.commit('addMessage', message)
         await this.autoScroll()
+        // 명령어를 입력할 때 마다 MongoDB에 저장
+        this.$http
+          .post(`http://127.0.0.1:7000/faqList/`, {
+            cmd: message
+          })
+          .then(result => {
+            console.log(result)
+          })
         // this.$store.dispatch('sendMessage', message).then(() => {
         //   const divObj = document.getElementsByClassName('chatContent')[0]
         //   divObj.scrollTop = divObj.scrollHeight
