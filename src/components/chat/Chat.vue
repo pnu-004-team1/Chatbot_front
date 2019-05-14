@@ -71,7 +71,7 @@ export default {
         await this.autoScroll()
         // 명령어를 입력할 때 마다 MongoDB에 저장
         this.$http
-          .post(`http://127.0.0.1:7000/faqList/`, {
+          .post(`http://35.175.95.233:8080/demo/faqList/`, {
             cmd: message
           })
           .then(result => {
