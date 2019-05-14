@@ -8,9 +8,7 @@ export const store = new Vuex.Store({
     input: '',
     messageID: 0,
     messages: [
-      // { id: 0, text: ' 안녕', from: 'me', date: '10:12' },
-      // { id: 1, text: ' 하이2', from: 'me', date: '10:15' },
-      { id: 2, text: ' 헬루', from: 'bot', date: '10:17' }
+      // { id: 0, text: ' 헬루', from: 'bot', date: '10:17' }
     ]
   },
   getters: {

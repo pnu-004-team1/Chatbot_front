@@ -71,16 +71,14 @@ export default {
         await this.autoScroll()
         // 명령어를 입력할 때 마다 MongoDB에 저장
         this.$http
-          .post(`http://35.175.95.233:8080/demo/faqList/`, {
+          .post(`http://localhost:7000/demo/faqList/`, {
             cmd: message
           })
           .then(result => {
             console.log(result)
           })
-        // this.$store.dispatch('sendMessage', message).then(() => {
-        //   const divObj = document.getElementsByClassName('chatContent')[0]
-        //   divObj.scrollTop = divObj.scrollHeight
-        // })
+        await this.$store.dispatch('sendMessage', message)
+        await this.autoScroll()
       }
     },
     autoScroll () {
