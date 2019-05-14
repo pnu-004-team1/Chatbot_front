@@ -57,14 +57,14 @@ body .chatHeader > .BackBtn {
 body .chatHeader > .headerTitle {
     display: flex;
     align-items: center;
-    font-size: 12px;
+    font-size: 23px;
     color: #1373AE;
 }
 
 body .chatHeader > .MenuBtn {
     position: absolute;
     float: right;
-    font-size: 13px;
+    font-size: 17px;
     width: 50px;
     height: 56px;
     line-height: 53px;
@@ -96,10 +96,12 @@ body .chatHeader > .headerTitle > .NameIcon {
     /* width: 28px;
     height: 28px;
     line-height: 28px; */
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    border-radius: 50%;
+    width: auto;
+    height: 45px;
+    margin-left: auto;
+    margin-right: auto;
+    /* line-height: 40px; */
+    /* border-radius: 50%; */
     /* border: 1px solid #3699f6; */
     text-align: center;
     flex: none;
@@ -111,7 +113,7 @@ body .chatHeader > .headerTitle > .Txt {
 }
 
 body .chatHeader > .headerTitle > .Txt > div {
-    font-size: 11px;
+    font-size: 17px;
     margin: 2px 0;
 }
 
@@ -128,7 +130,7 @@ body .chatSend > .errorTxt {
     left: 0;
     right: 0;
     background-color: #fb5c5c;
-    font-size: 12px;
+    font-size: 15px;
     padding: 7px;
     color: #fff;
     text-align: center;
@@ -139,7 +141,7 @@ body .chatSend > .sendText {
     height: 48px;
     padding-right: 55px;
     padding-left: 20px;
-    font-size: 12px;
+    font-size: 15px;
     color: #6f6f6f;
     display: block;
     width: calc(100% - 75px);
@@ -205,13 +207,13 @@ body .chatContent .chat-column {
 }
 
 body .chatContent .chat-column > .item > .chat-icon {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     line-height: 25px;
     background-color: #0099F6;
     border-radius: 50%;
     text-align: center;
-    font-size: 12px;
+    font-size: 15px;
     color: #fff;
     font-weight: 600;
     margin-right: 13px;
@@ -221,7 +223,7 @@ body .chatContent .chat-column > .item > .chat-icon {
 body .chatContent .chat-column > .item > .chat-message {
     background-color: #3699f6;
     color: #fff;
-    font-size: 12px;
+    font-size: 20px;
     padding: 10px;
     border-radius: 10px;
     line-height: 20px;

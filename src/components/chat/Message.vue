@@ -1,7 +1,7 @@
 <template>
     <div class="chat-column" v-bind:class="this.item.from">
         <div class="item">
-            <div class="chat-icon" v-show="icon">{{this.item.from}}</div>
+            <img class="chat-icon" v-show="icon"  src="../../common/images/logo.png"/>
         </div>
         <div class="item">
             <div class="chat-message">{{this.item.text}}</div>

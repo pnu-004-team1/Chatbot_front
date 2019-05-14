@@ -6,11 +6,11 @@
           <a href="#" class="BackBtn"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
         <div class="headerTitle">
             <!-- <div class="NameIcon">SA</div> -->
-          <img class="NameIcon" src="../../common/images/logo.png"/>
-            <div class="Txt">
-              <div>PNU Chatbot</div>
+          <img class="NameIcon" src="../../common/images/logo2.png"/>
+            <!-- <div class="Txt">
+              <div><strong>PNU Chatbot</strong></div>
               <div>무엇이든 물어보세요!</div>
-            </div>
+            </div> -->
         </div>
         </div>
         <!-- END : chatHeader -->
