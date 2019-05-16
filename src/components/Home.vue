@@ -9,12 +9,13 @@
       sandbox="allow-same-origin allow-scripts"
     /> -->
     <fab
+      v-show="fabVisible"
       :position="position"
       :bg-color="bgColor"
       :actions="fabActions"
       @chatbot="chat"
     />
-    <Chat v-show="this.chatFlag"/>
+    <Chat v-show="this.chatFlag" :fabVisible="this.fabVisible" />
   </div>
 </template>
 
@@ -30,6 +31,7 @@ export default {
   },
   data () {
     return {
+      fabVisible: true,
       bgColor: '#778899',
       position: 'bottom-right',
       chatFlag: false,
@@ -44,6 +46,13 @@ export default {
   methods: {
     chat () {
       this.chatFlag = !this.chatFlag
+    }
+  },
+  updated () {
+    if (window.innerWidth <= 480) {
+      console.log('phone size')
+      this.fabVisible = false
+      this.chatFlag = true
     }
   }
 }

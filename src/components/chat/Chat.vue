@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div v-bind:class="{ container_pc: fabVisible, container_phone: !fabVisible}">
         <BuggerMenu/>
         <!-- BEGIN : chatHeader -->
         <div class="chatHeader">
@@ -15,7 +15,7 @@
         </div>
         <!-- END : chatHeader -->
         <!-- BEGIN : chatContent -->
-        <div class="chatContent">
+        <div v-bind:class="{ chatContent_pc: fabVisible, chatContent_phone: !fabVisible}">
           <Message
               v-for="(item) in getMessages"
               v-bind:item="item"
@@ -45,6 +45,7 @@ import BuggerMenu from '../menu/BuggerMenu'
 
 export default {
   name: 'Chat',
+  props: ['fabVisible'],
   computed: {
     ...mapGetters([
       'getInput',
@@ -70,19 +71,24 @@ export default {
         await this.$store.commit('addMessage', message)
         await this.autoScroll()
         // 명령어를 입력할 때 마다 MongoDB에 저장
-        this.$http
-          .post(`http://localhost:7000/demo/faqList/`, {
-            cmd: message
-          })
-          .then(result => {
-            console.log(result)
-          })
+        // this.$http
+        //   .post(`http://localhost:7000/demo/faqList/`, {
+        //     cmd: message
+        //   })
+        //   .then(result => {
+        //     console.log(result)
+        //   })
         await this.$store.dispatch('sendMessage', message)
         await this.autoScroll()
       }
     },
     autoScroll () {
-      const divObj = document.getElementsByClassName('chatContent')[0]
+      let divObj = null
+      if (this.fabVisible) {
+        divObj = document.getElementsByClassName('chatContent_pc')[0]
+      } else {
+        divObj = document.getElementsByClassName('chatContent_phone')[0]
+      }
       divObj.scrollTop = divObj.scrollHeight
     }
   },
