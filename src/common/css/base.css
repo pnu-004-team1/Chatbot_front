@@ -216,12 +216,12 @@ body .chatContent_pc::-webkit-scrollbar-thumb:hover {
   background: #3699f6; 
 }
 
-body .chatContent_pc .chat-column {
+body .chat-column {
     display: flex;
     margin-bottom: 20px;
 }
 
-body .chatContent_pc .chat-column > .item > .chat-icon {
+body .chat-column > .item > .chat-icon {
     width: 30px;
     height: 30px;
     line-height: 25px;
@@ -242,27 +242,36 @@ body .chatContent_pc .chat-column > .item > .chat-message {
     padding: 10px;
     border-radius: 10px;
     line-height: 20px;
+    max-width: 400px;
 }
-
-body .chatContent_pc .chat-column > .item > .message-date {
+body .chatContent_phone .chat-column > .item > .chat-message {
+    background-color: #3699f6;
+    color: #fff;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    line-height: 20px;
+    max-width: 250px;
+}
+body .chat-column > .item > .message-date {
     font-size: 10px;
     color: #3699f6;
     font-weight: 600;
     margin-top: 5px;
 }
 
-body .chatContent_pc .chat-column.me {
+body .chat-column.me {
     flex-direction: row-reverse;
 }
 
-body .chatContent_pc .chat-column.me > .item > .chat-icon {
+body .chat-column.me > .item > .chat-icon {
     margin-right: 0;
     margin-left: 13px;
     background-color: #fff;
     color: #3699f6;
 }
 
-body .chatContent_pc .chat-column.me > .item > .chat-message {
+body .chat-column.me > .item > .chat-message {
     background-color: #fff;
     color: #3699f6;
 }
@@ -275,7 +284,7 @@ body .chatContent_phone {
     /* bottom: 48px; */
     overflow-y: auto;
 }
-body .chatContent_phone::-webkit-scrollbar {
+/* body .chatContent_phone::-webkit-scrollbar {
   width: 3px;
 }
 
@@ -316,6 +325,7 @@ body .chatContent_phone .chat-column > .item > .chat-message {
     padding: 10px;
     border-radius: 10px;
     line-height: 20px;
+    max-width: 40%;
 }
 
 body .chatContent_phone .chat-column > .item > .message-date {
@@ -339,4 +349,4 @@ body .chatContent_phone .chat-column.me > .item > .chat-icon {
 body .chatContent_phone .chat-column.me > .item > .chat-message {
     background-color: #fff;
     color: #3699f6;
-}
+} */

@@ -4,13 +4,17 @@
             <img class="chat-icon" v-show="icon"  src="../../common/images/logo.png"/>
         </div>
         <div class="item">
-            <div class="chat-message">{{this.item.text}}</div>
+            <div class="chat-message">
+              <component v-bind:is="messageForm" v-bind:data="messagePropsData"/>
+            </div>
             <div class="message-date">{{this.item.date}}</div>
         </div>
     </div>
 </template>
 
 <script>
+import MessageBookinfo from './Message_bookinfo'
+import MessageText from './Message_text'
 
 export default {
   name: 'Message',
@@ -22,7 +26,30 @@ export default {
       } else {
         return false
       }
+    },
+    messageForm () {
+      if (this.item.from === 'me') {
+        return MessageText
+      } else {
+        switch (this.item.text.data.type) {
+          case 'bookinfo':
+            return 'MessageBookinfo'
+          default:
+            return 'MessageText'
+        }
+      }
+    },
+    messagePropsData () {
+      if (this.item.from === 'me') {
+        return this.item.text
+      } else {
+        return this.item.text.data.data
+      }
     }
+  },
+  components: {
+    MessageBookinfo,
+    MessageText
   }
 }
 </script>
