@@ -9,32 +9,39 @@
       sandbox="allow-same-origin allow-scripts"
     /> -->
     <fab
-      v-show="fabVisible"
+      v-show=true
       :position="position"
       :bg-color="bgColor"
       :actions="fabActions"
-      @chatbot="chat"
+      @chatbot="chatOpen"
     />
-    <Chat v-show="this.chatFlag" :fabVisible="this.fabVisible" />
+    <Chat v-show="getChatComponentStatus === 'chat'" :fabVisible="this.fabVisible" />
+    <SignIn v-show="getChatComponentStatus === 'signin'" :fabVisible="this.fabVisible" />
+    <SignUp v-show="getChatComponentStatus === 'signup'" :fabVisible="this.fabVisible" />
   </div>
 </template>
 
 <script>
 import Chat from './chat/Chat'
+import SignIn from './sign/SignIn'
+import SignUp from './sign/SignUp'
 import fab from 'vue-fab'
+import * as str from '../common/string'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Home',
   components: {
-    'Chat': Chat,
-    'fab': fab
+    Chat,
+    SignIn,
+    SignUp,
+    fab
   },
   data () {
     return {
       fabVisible: true,
       bgColor: '#778899',
       position: 'bottom-right',
-      chatFlag: false,
       fabActions: [
         {
           name: 'chatbot',
@@ -43,12 +50,17 @@ export default {
       ]
     }
   },
+  computed: {
+    ...mapGetters([
+      'getChatComponentStatus'
+    ])
+  },
   methods: {
-    chat () {
-      this.chatFlag = !this.chatFlag
+    chatOpen () {
+      this.$store.commit('updateChatComponentStatus', str.CHAT)
     }
   },
-  updated () {
+  created () {
     if (window.innerWidth <= 480) {
       console.log('phone size')
       this.fabVisible = false

@@ -1,13 +1,14 @@
 <template>
   <div id="app">
     <router-view/>
-    <navigation/>
-    <app-nav/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  created () {
+    console.log('앱 생성')
+  }
 }
 </script>

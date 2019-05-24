@@ -7,8 +7,8 @@ import axios from 'axios'
 import './common/css/base.css'
 import './common/css/menu.css'
 import './common/css/sign.css'
-import { store } from './store/store'
-// import store from './store'
+// import { store } from './store/store'
+import store from './store'
 import 'expose-loader?$/expose-loader?jQuery/jquery'
 
 Vue.config.productionTip = false

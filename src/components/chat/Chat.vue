@@ -31,7 +31,7 @@
               v-model="input"
               v-on:keydown="handelPress"
           />
-          <div id="send-message" onClick={handleCreate}>
+          <div id="send-message">
             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
           </div>
         </div>
@@ -61,7 +61,7 @@ export default {
     }
   },
   components: {
-    'Message': Message,
+    Message,
     BuggerMenu
   },
   methods: {
@@ -92,7 +92,8 @@ export default {
       divObj.scrollTop = divObj.scrollHeight
     }
   },
-  updated () {
+  created () {
+    console.log('chat 생성')
   }
 }
 </script>

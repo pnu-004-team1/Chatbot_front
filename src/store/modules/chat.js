@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import axios from 'axios'
 Vue.use(Vuex)
 
-const chat = new Vuex.Store({
+export const chat = {
   state: {
     input: '',
     messageID: 0,
@@ -57,7 +57,7 @@ const chat = new Vuex.Store({
         })
     }
   }
-})
+}
 
 function getTimeStamp () {
   var d = new Date()
@@ -82,4 +82,3 @@ function leadingZeros (n, digits) {
   }
   return zero + n
 }
-export default chat
