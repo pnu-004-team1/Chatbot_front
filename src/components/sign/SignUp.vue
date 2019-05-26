@@ -19,10 +19,9 @@
           <div class="signWrapper">
             <form @submit.prevent="sendPost" class="form-sign">
               <h2 class="form-sign-heading">회원가입</h2>
-              <input type="text" class="form-control" name="ID" placeholder="Username" required="" autofocus=""/>
-              <input type="password" class="form-control" name="PW" placeholder="Password" required=""/>
-              <input type="text" class="form-control" name="Name" placeholder="Name" required=""/>
-              <input type="email" class="form-control" name="Email" placeholder="Email" required=""/>
+              <input type="text" class="form-control" v-model="user.username" placeholder="Username" required="" autofocus=""/>
+              <input type="password" class="form-control" v-model="user.password" placeholder="Password" required=""/>
+              <input type="text" class="form-control" v-model="user.name" placeholder="Name" required=""/>
               <button class="SignBtn" type="submit">Submit</button>
               <button class="SignBtn" type="reset">Reset</button>
             </form>
@@ -37,11 +36,26 @@ import BuggerMenu from '../menu/BuggerMenu'
 export default {
   name: 'SignUp',
   data () {
-    return {}
+    return {
+      user: {
+        username: '',
+        password: '',
+        name: ''
+      }
+    }
   },
   methods: {
-    sendPost: (e) => {
-      console.log(e)
+    sendPost: function () {
+      axios.post('localhost:7000/member/join.do', {
+        username: this.username,
+        password: this.password,
+        name: this.name
+      })
+      .then(function(res) {
+        console.log(res.data)
+      }, function() {
+        console.log('failed')
+      })
     }
   },
   components: {

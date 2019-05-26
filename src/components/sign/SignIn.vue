@@ -19,8 +19,8 @@
           <div class="signWrapper">
             <form action="" method="post" class="form-sign">
               <h2 class="form-sign-heading">로그인</h2>
-              <input type="text" class="form-control" name="ID" placeholder="Username" required="" autofocus="" />
-              <input type="password" class="form-control" name="PW" placeholder="Password" required=""/>
+              <input type="text" class="form-control" v-model="user.username" placeholder="Username" required="" autofocus="" />
+              <input type="password" class="form-control" v-model="password" placeholder="Password" required=""/>
               <button class="loginBtn" type="submit">Login</button>
             </form>
           </div>
@@ -34,7 +34,12 @@ import BuggerMenu from '../menu/BuggerMenu'
 export default {
   name: 'LogIn',
   data () {
-    return {}
+    return {
+      user: {
+        username: '',
+        password: ''
+      }
+    }
   },
   components: {
     BuggerMenu
