@@ -15,15 +15,12 @@ export default {
     Slide
   },
   methods: {
-    handleSignIn: function () {
+    handleSignIn () {
       this.$store.commit('updateChatComponentStatus', str.SIGNIN)
     },
-    handleSignUp: function () {
+    handleSignUp () {
       this.$store.commit('updateChatComponentStatus', str.SIGNUP)
     }
-  },
-  created () {
-    console.log('버거 메뉴 생성')
   }
 }
 </script>

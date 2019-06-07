@@ -1,5 +1,6 @@
 <template>
-    <div v-bind:class="{ container_pc: fabVisible, container_phone: !fabVisible}">
+    <div v-bind:class="bindClass_container">
+      <div v-on:click="chatClose">x</div>
         <BuggerMenu/>
         <!-- BEGIN : chatHeader -->
         <div class="chatHeader">
@@ -15,7 +16,7 @@
         </div>
         <!-- END : chatHeader -->
         <!-- BEGIN : chatContent -->
-        <div v-bind:class="{ chatContent_pc: fabVisible, chatContent_phone: !fabVisible}">
+        <div v-bind:class="bindClass_content">
           <Message
               v-for="(item) in getMessages"
               v-bind:item="item"
@@ -42,6 +43,7 @@
 import { mapGetters } from 'vuex'
 import Message from './Message'
 import BuggerMenu from '../menu/BuggerMenu'
+import * as str from '../../common/string'
 
 export default {
   name: 'Chat',
@@ -49,7 +51,8 @@ export default {
   computed: {
     ...mapGetters([
       'getInput',
-      'getMessages'
+      'getMessages',
+      'getEnvironment'
     ]),
     input: {
       get () {
@@ -57,6 +60,18 @@ export default {
       },
       set (value) {
         this.$store.commit('updateInput', value)
+      }
+    },
+    bindClass_container () {
+      return {
+        container_phone: this.getEnvironment === str.PHONE,
+        container_pc: this.getEnvironment === str.PC
+      }
+    },
+    bindClass_content () {
+      return {
+        chatContent_phone: this.getEnvironment === str.PHONE,
+        chatContent_pc: this.getEnvironment === str.PC
       }
     }
   },
@@ -67,7 +82,7 @@ export default {
   methods: {
     async handelPress (e) {
       if (e.key === 'Enter') {
-        const message = this.$store.state.input
+        const message = this.$store.state.chat.input
         await this.$store.commit('addMessage', message)
         await this.autoScroll()
         // 명령어를 입력할 때 마다 MongoDB에 저장
@@ -90,6 +105,9 @@ export default {
         divObj = document.getElementsByClassName('chatContent_phone')[0]
       }
       divObj.scrollTop = divObj.scrollHeight
+    },
+    chatClose () {
+      this.$store.commit('containerHidden')
     }
   },
   created () {

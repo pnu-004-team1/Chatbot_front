@@ -32,11 +32,6 @@ body {
 .container_phone {
     width: 100%;
     height: 100%;
-    /* position: fixed;
-    width: 90%;
-    height: 90%;
-    max-width: 500px; */
-    max-height: 800px;
 	right:5%;
     margin: 0 auto;
     border: 1px solid #ececec;
@@ -201,6 +196,15 @@ body .chatContent_pc {
     /* bottom: 48px; */
     overflow-y: auto;
 }
+body .chatContent_phone {
+    /* height: 500px; */
+    height: 600px;
+    /* min-height: 500px; */
+    padding: 20px 20px 0px 20px;
+    /* max-height: 450px; */
+    /* bottom: 48px; */
+    overflow-y: auto;
+}
 body .chatContent_pc::-webkit-scrollbar {
   width: 3px;
 }
@@ -276,14 +280,7 @@ body .chat-column.me > .item > .chat-message {
     color: #3699f6;
 }
 
-body .chatContent_phone {
-    height: 500px;
-    /* min-height: 500px; */
-    padding: 20px 20px 0px 20px;
-    /* max-height: 450px; */
-    /* bottom: 48px; */
-    overflow-y: auto;
-}
+
 /* body .chatContent_phone::-webkit-scrollbar {
   width: 3px;
 }

@@ -1,23 +1,22 @@
 <template>
   <div>
-    <!-- <iframe
+    <iframe
       id="site-frame"
       src="http://www.pusan.ac.kr/kor/Main.do"
       frameborder="0"
       width="100%"
       height="1500"
       sandbox="allow-same-origin allow-scripts"
-    /> -->
+      v-show="mobileFabVisible"
+    />
     <fab
-      v-show=true
       :position="position"
       :bg-color="bgColor"
       :actions="fabActions"
       @chatbot="chatOpen"
+      v-show="mobileFabVisible"
     />
-    <Chat v-show="getChatComponentStatus === 'chat'" :fabVisible="this.fabVisible" />
-    <SignIn v-show="getChatComponentStatus === 'signin'" :fabVisible="this.fabVisible" />
-    <SignUp v-show="getChatComponentStatus === 'signup'" :fabVisible="this.fabVisible" />
+    <component v-bind:is="chatContainerForm" v-show="getContainerVisible"/>
   </div>
 </template>
 
@@ -52,12 +51,30 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'getChatComponentStatus'
-    ])
+      'getChatComponentStatus',
+      'getContainerVisible',
+      'getEnvironment'
+    ]),
+    chatContainerForm () {
+      switch (this.getChatComponentStatus) {
+        case str.CHAT:
+          return 'Chat'
+        case str.SIGNIN:
+          return 'SignIn'
+        case str.SIGNUP:
+          return 'SignUp'
+        case str.CLOSE:
+          return ''
+      }
+    },
+    mobileFabVisible () {
+      return (!this.getContainerVisible && (this.getEnvironment === str.PHONE)) || this.getEnvironment === str.PC
+    }
   },
   methods: {
     chatOpen () {
       this.$store.commit('updateChatComponentStatus', str.CHAT)
+      this.$store.commit('toggleContainerVisible')
     }
   },
   created () {
@@ -65,6 +82,10 @@ export default {
       console.log('phone size')
       this.fabVisible = false
       this.chatFlag = true
+      this.$store.commit('setEnvironment', str.PHONE)
+    } else {
+      console.log('pc size')
+      this.$store.commit('setEnvironment', str.PC)
     }
   }
 }
