@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import { chat } from './modules/chat'
 import { home } from './modules/home'
+import { logState } from './modules/logState'
 
 Vue.use(Vuex)
 
@@ -9,7 +10,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    home, chat
+    home, chat, logState
   }
   // strict: debug
   // plugins: debug ? [createLogger()] : []

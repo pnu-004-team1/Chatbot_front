@@ -62,13 +62,13 @@
    margin-left: 10%;
    font-size: 20px;
 }
-.bm-item-list > * {
+.bm-item-list > div > * {
    display: flex;
    text-decoration: none;
    padding: 0.7em;
    border:#f7f8ff;
 }
-.bm-item-list > * > span {
+.bm-item-list > div > * > span {
    margin-left: 10px;
    font-weight: 700;
    color: white;

@@ -34,6 +34,8 @@
 import BuggerMenu from '../menu/BuggerMenu'
 import axios from 'axios'
 
+let message
+
 export default {
   name: 'SignUp',
   data () {
@@ -48,14 +50,17 @@ export default {
   methods: {
     sendPost: function () {
       axios.post('http://localhost:7000/join', {
-        headers: {'Content-type': 'application/json',
-          'x-access-token': '1'},
+        headers: {'Content-type': 'application/json'},
         username: this.user.username,
         password: this.user.password,
         name: this.user.name
       })
         .then(response => {
           console.log(response)
+          if (response.data === 'error') {
+            message = '이미 존재하는 아이디 입니다'
+            alert(message)
+          }
         })
         .catch(error => {
           console.log(error.message)

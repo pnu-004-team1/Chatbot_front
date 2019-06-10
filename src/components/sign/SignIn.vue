@@ -32,8 +32,6 @@
 import BuggerMenu from '../menu/BuggerMenu'
 import axios from 'axios'
 
-let state
-
 export default {
   name: 'LogIn',
   data () {
@@ -53,9 +51,9 @@ export default {
       })
         .then(response => {
           sessionStorage.setItem('token', response.data.token)
-          sessionStorage.setItem('state', 'login')
-          state = sessionStorage.getItem('state')
-          console.log(state)
+          // sessionStorage.setItem('state', 'login')
+          this.$store.commit('setSessionState', 'login')
+          console.log(this.$store.getters.getSessionState)
         })
         .catch(error => {
           console.log(error.message)
