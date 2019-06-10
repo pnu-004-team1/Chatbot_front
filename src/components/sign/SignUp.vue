@@ -32,6 +32,7 @@
 
 <script>
 import BuggerMenu from '../menu/BuggerMenu'
+import axios from 'axios'
 
 export default {
   name: 'SignUp',
@@ -46,16 +47,20 @@ export default {
   },
   methods: {
     sendPost: function () {
-      axios.post('localhost:7000/member/join.do', {
-        username: this.username,
-        password: this.password,
-        name: this.name
+      axios.post('http://localhost:7000/join', {
+        headers: {'Content-type': 'application/json',
+          'x-access-token': '1'},
+        username: this.user.username,
+        password: this.user.password,
+        name: this.user.name
       })
-      .then(function(res) {
-        console.log(res.data)
-      }, function() {
-        console.log('failed')
-      })
+        .then(response => {
+          console.log(response)
+        })
+        .catch(error => {
+          console.log(error.message)
+          console.log(sessionStorage)
+        })
     }
   },
   components: {
