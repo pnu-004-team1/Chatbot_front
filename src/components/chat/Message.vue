@@ -5,7 +5,10 @@
         </div>
         <div class="item">
             <div class="chat-message">
-              <component v-bind:is="messageForm" v-bind:data="messagePropsData"/>
+              <!-- <component v-bind:is="messageForm" v-bind:data="messagePropsData"/> -->
+              <!-- <div class="message_container"> -->
+                <pre style="white-space: pre-wrap;">{{this.item.text}}</pre>
+              <!-- </div> -->
             </div>
             <div class="message-date">{{this.item.date}}</div>
         </div>
@@ -25,18 +28,6 @@ export default {
         return true
       } else {
         return false
-      }
-    },
-    messageForm () {
-      if (this.item.from === 'me') {
-        return MessageText
-      } else {
-        switch (this.item.text.data.type) {
-          case 'bookinfo':
-            return 'MessageBookinfo'
-          default:
-            return 'MessageText'
-        }
       }
     },
     messagePropsData () {

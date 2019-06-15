@@ -1,5 +1,6 @@
 <template>
-    <div class="container">
+    <div v-bind:class="bindClass_container">
+      <div v-on:click="chatClose">x</div>
         <BuggerMenu/>
         <!-- BEGIN : chatHeader -->
         <div class="chatHeader">
@@ -15,7 +16,7 @@
         </div>
         <!-- END : chatHeader -->
         <!-- BEGIN : SignUpContent -->
-        <div class="chatContent">
+        <div v-bind:class="bindClass_content">
           <div class="signWrapper">
             <form action="" method="post" class="form-sign">
               <h2 class="form-sign-heading">로그인</h2>
@@ -30,11 +31,26 @@
 
 <script>
 import BuggerMenu from '../menu/BuggerMenu'
+import * as str from '../../common/string'
 
 export default {
   name: 'LogIn',
   data () {
     return {}
+  },
+  computed: {
+    bindClass_container () {
+      return {
+        container_phone: this.getEnvironment === str.PHONE,
+        container_pc: this.getEnvironment === str.PC
+      }
+    },
+    bindClass_content () {
+      return {
+        chatContent_phone: this.getEnvironment === str.PHONE,
+        chatContent_pc: this.getEnvironment === str.PC
+      }
+    }
   },
   components: {
     BuggerMenu

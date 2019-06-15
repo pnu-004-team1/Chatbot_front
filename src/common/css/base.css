@@ -184,6 +184,7 @@ body .chatSend > #send-message {
     width: 55px;
     background-color: #fff;
     font-size: 20px;
+    font-weight: 500;
     color: #3699f6;
     text-align: center;
 }
@@ -243,6 +244,7 @@ body .chatContent_pc .chat-column > .item > .chat-message {
     background-color: #3699f6;
     color: #fff;
     font-size: 20px;
+    font-weight: 500;
     padding: 10px;
     border-radius: 10px;
     line-height: 20px;
@@ -252,6 +254,7 @@ body .chatContent_phone .chat-column > .item > .chat-message {
     background-color: #3699f6;
     color: #fff;
     font-size: 15px;
+    font-weight: 500;
     padding: 10px;
     border-radius: 10px;
     line-height: 20px;

@@ -44,9 +44,12 @@ export const chat = {
         })
         .then(res => {
           console.log(res.data)
+          let answer = res.data.status === 200 ? res.data.data.answer : '어려운 질문이네요..'
+          answer = answer.replace(/ +/g, ' ')
+          console.log(answer)
           const item = {
             id: state.messageID++,
-            text: res.data,
+            text: answer,
             from: 'bot',
             date: getTimeStamp()
           }
